@@ -1,0 +1,18 @@
+[user]
+	email = warpmatrixlyk@gmail.com
+	name = warpmatrix
+[alias]
+	stat = status
+	st = stash
+	rs = reset
+	ps = push origin
+	pl = pull origin
+	co = checkout
+	cm = commit
+	br = branch
+	rb = rebase
+	lg = log --graph --decorate --oneline
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[core]
+	editor = vim

@@ -121,9 +121,8 @@ fi
 alias rm="rm -i"
 
 # init pyenv
-export PATH="/home/warpmatrix/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # kubectl enable shell autocompletion
 # source <(kubectl completion bash)

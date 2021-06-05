@@ -36,6 +36,9 @@ export PATH="$PATH:/usr/local/go/bin"
 
 # for pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # for texlive
 export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH

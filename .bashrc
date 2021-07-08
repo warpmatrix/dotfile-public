@@ -129,3 +129,8 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # vim input mode
 set -o vi
+
+# start up tmux
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux

@@ -54,6 +54,10 @@ noremap H ^
 noremap L $
 ```
 
+增加 [imselect](git@github.com:brglng/vim-im-select.git) 脚本，自动更换输入法。
+
+引入 tpope 大神的插件：commentary, repeat, surround
+
 ## profile
 
 modify ~/.profile to add pyenv feat: virtualenv disable prompt:

@@ -121,8 +121,10 @@ fi
 alias rm="rm -i"
 
 # init pyenv
-eval "$(pyenv init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+if [ -d "$HOME/.pyenv" ] ; then
+    eval "$(pyenv init -)"
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+fi
 
 # kubectl enable shell autocompletion
 # source <(kubectl completion bash)
@@ -132,5 +134,5 @@ set -o vi
 
 # start up tmux
 # If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && exec tmux

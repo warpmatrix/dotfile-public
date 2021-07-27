@@ -28,17 +28,22 @@ fi
 
 # customized settings
 # for go
-export PATH="$PATH:/usr/local/go/bin"
+if [ -d "/usr/local/go/bin" ] ; then
+    export PATH="$PATH:/usr/local/go/bin"
+fi
 
 # for embedded OS
 # export PATH=/opt/FriendlyARM/toolchain/4.9.3/bin:$PATH
 # export GCC_COLORS=auto
 
 # for pyenv
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+if [ -d "$HOME/.pyenv" ] ; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+fi
 
 # for texlive
-export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
+if [ -d "/usr/local/texlive/2020/bin/x86_64-linux" ] ; then
+    export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
+fi

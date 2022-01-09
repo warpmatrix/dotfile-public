@@ -16,3 +16,7 @@
 	insteadOf = https://github.com/
 [core]
 	editor = vim
+[http]
+	sslverify = false
+[https]
+	sslverify = false

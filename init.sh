@@ -23,3 +23,5 @@ done
 
 # some vim plugins, which impl scp $HOME/.vim/* remote:$HOME/.vim/
 git submodule init && git submodule update
+
+curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux >> ~/.bash_completion

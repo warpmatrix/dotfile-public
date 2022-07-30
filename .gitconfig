@@ -12,8 +12,6 @@
 	br = branch
 	rb = rebase
 	lg = log --graph --decorate --oneline
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [core]
 	editor = vim
 [http]

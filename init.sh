@@ -7,6 +7,8 @@ files=(
     ".tmux.conf"
     ".vimrc"
     ".vim"
+    ".bash_completion"
+    ".bash_cmpl"
 )
 
 for file in ${files[*]}; do
@@ -24,4 +26,4 @@ done
 # some vim plugins, which impl scp $HOME/.vim/* remote:$HOME/.vim/
 git submodule init && git submodule update
 
-curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux >> ~/.bash_completion
+curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > ./.bash_cmpl/tmux

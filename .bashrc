@@ -126,9 +126,6 @@ if [ -d "$HOME/.pyenv" ] ; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
-# kubectl enable shell autocompletion
-# source <(kubectl completion bash)
-
 # vim input mode
 set -o vi
 

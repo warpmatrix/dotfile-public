@@ -21,6 +21,7 @@ files=(
     ".inputrc"
     ".profile"
     ".tmux.conf"
+    ".tmate.conf"
     ".vimrc"
     ".vim"
 )
@@ -48,4 +49,4 @@ done
 git submodule update --init --recursive
 
 # tmux completion
-curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > ./.bash_cmpl/tmux
+curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > $HOME/dotfile/.bash_cmpl/tmux

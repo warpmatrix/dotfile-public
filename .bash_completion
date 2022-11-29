@@ -2,14 +2,26 @@ has_cmd() {
     [ -n "$(command -v $1)" ]
 }
 
-if $(has_cmd kubectl); then
-    source <(kubectl completion bash)
-fi
+cmds=(
+    "kubectl"
+    "coder"
+    "kind"
+    "helm"
+)
+for cmd in ${cmds[@]}; do
+    if $(has_cmd $cmd); then
+        echo "source <($cmd completion bash)"
+    fi
+done
 
 if $(has_cmd faas-cli); then
     source <(faas-cli completion --shell bash)
 fi
 
 if $(has_cmd tmux); then
-    source <(cat ./.bash_cmpl/tmux)
+    source <(cat ~/.bash_cmpl/tmux)
+fi
+
+if $(has_cmd terraform); then
+    complete -C /usr/bin/terraform terraform
 fi

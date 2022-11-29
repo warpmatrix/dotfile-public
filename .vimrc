@@ -42,5 +42,6 @@ noremap L $
 " endif
 
 autocmd FileType python,sh set commentstring=#\ %s
-autocmd FileType java,c,cpp set commentstring=//\ %s
+autocmd FileType c,cpp,java,scala set commentstring=//\ %s
 autocmd FileType vim set commentstring=\"\ %s
+autocmd FileType markdown set commentstring=<!--\ %s\ -->

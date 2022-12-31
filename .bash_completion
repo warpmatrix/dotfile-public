@@ -1,16 +1,18 @@
-has_cmd() {
-    [ -n "$(command -v $1)" ]
-}
+# import has_cmd in utils.sh
+. ~/dotfile/utils.sh
 
 cmds=(
-    "kubectl"
     "coder"
     "kind"
+    "minikube"
+    "kubeadm"
+    "kubectl"
+    "crictl"
     "helm"
 )
 for cmd in ${cmds[@]}; do
     if $(has_cmd $cmd); then
-        echo "source <($cmd completion bash)"
+        source <($cmd completion bash)
     fi
 done
 

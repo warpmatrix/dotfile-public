@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ $OS == "Windows_NT" ]; then
+    cd windows && pwd
+    ./init.sh
+    cd - && pwd
+fi
+
 bash_files=(
     ".bashrc"
     ".bash_completion"
@@ -8,8 +14,8 @@ bash_files=(
 
 zsh_files=(
     ".zshrc"
-    ".oh-my-zsh/custom/plugins"
     ".zprofile"
+    `find .oh-my-zsh/custom/plugins -maxdepth 1 -mindepth 1 -type d ! -name example`
 )
 
 shell=$(basename $SHELL)
@@ -49,4 +55,6 @@ done
 git submodule update --init --recursive
 
 # tmux completion
-curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > $HOME/dotfile/.bash_cmpl/tmux
+if ! [ -f "$HOME/dotfile/.bash_cmpl/tmux" ]; then
+    curl -L https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux -o $HOME/dotfile/.bash_cmpl/tmux
+fi

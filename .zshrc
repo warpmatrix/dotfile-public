@@ -109,13 +109,19 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+. ~/dotfile/utils.sh
 
-autoload -U compinit; compinit
-source <(coder completion zsh); compdef _coder coder
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+if $(has_cmd coder); then
+    autoload -U compinit; compinit
+    source <(coder completion zsh); compdef _coder coder
+fi
 
 # start up tmux
 # If not running interactively, do not do anything

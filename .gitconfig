@@ -5,8 +5,6 @@
 	stat = status
 	st = stash
 	rs = reset
-	ps = push origin
-	pl = pull origin
 	co = checkout
 	cm = commit
 	br = branch

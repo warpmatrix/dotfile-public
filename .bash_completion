@@ -8,6 +8,7 @@ cmds=(
     "kubeadm"
     "kubectl"
     "crictl"
+    "keadm"
     "helm"
 )
 for cmd in ${cmds[@]}; do
@@ -20,10 +21,33 @@ if $(has_cmd faas-cli); then
     source <(faas-cli completion --shell bash)
 fi
 
+if $(has_cmd rustup); then
+    source <(rustup completions bash)
+fi
+
+if $(has_cmd cargo); then
+    source <(rustup completions bash cargo)
+fi
+
+if $(has_cmd wsk); then
+    if ! [ -f ~/.bash_cmpl/wsk_cli_bash_completion.sh ]; then
+        wsk sdk install bashauto
+        mv wsk_cli_bash_completion.sh ~/.bash_cmpl/
+    fi
+    source ~/.bash_cmpl/wsk_cli_bash_completion.sh
+fi
+
 if $(has_cmd tmux); then
-    source <(cat ~/.bash_cmpl/tmux)
+    if ! [ -f "$HOME/dotfile/.bash_cmpl/tmux" ]; then
+        curl -L https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux -o $HOME/dotfile/.bash_cmpl/tmux
+    fi
+    source ~/.bash_cmpl/tmux
 fi
 
 if $(has_cmd terraform); then
     complete -C /usr/bin/terraform terraform
+fi
+
+if $(has_cmd flutter); then
+    source <(flutter bash-completion)
 fi

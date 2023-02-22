@@ -47,3 +47,7 @@ fi
 if [ -d "/usr/local/texlive/2020/bin/x86_64-linux" ] ; then
     export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
 fi
+
+if [ -d "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi

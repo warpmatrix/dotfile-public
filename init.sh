@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $OS == "Windows_NT" ]; then
+if [ "$OS" == "Windows_NT" ]; then
     cd windows && pwd
     ./init.sh
     cd - && pwd
@@ -53,8 +53,3 @@ done
 
 # submodule including vim plugins, zsh plugins
 git submodule update --init --recursive
-
-# tmux completion
-if ! [ -f "$HOME/dotfile/.bash_cmpl/tmux" ]; then
-    curl -L https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux -o $HOME/dotfile/.bash_cmpl/tmux
-fi

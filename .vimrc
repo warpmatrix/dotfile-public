@@ -13,6 +13,7 @@ set relativenumber
 set number
 
 syntax on
+" set smoothscroll
 set hlsearch
 set ignorecase
 set smartcase

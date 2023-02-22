@@ -16,7 +16,7 @@ ZSH_THEME="random"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-# ZSH_THEME_RANDOM_CANDIDATES=( "af-magic" "jonathan" "awesomepanda")
+# ZSH_THEME_RANDOM_CANDIDATES=( "af-magic" "jonathan" "awesomepanda" "half-life" "amuse" "imajes")
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+autoload -U compinit; compinit
 . ~/dotfile/utils.sh
 
 if [ -d "$HOME/.pyenv" ]; then
@@ -118,10 +119,43 @@ if [ -d "$HOME/.pyenv" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+if [ -d "$HOME/.zfunc" ]; then
+    fpath+=$HOME/.zfunc
+fi
+
+if [ -d $HOME/Library/flutter/bin ]; then
+    export PATH="$PATH:$HOME/Library/flutter/bin"
+    source <(flutter bash-completion) # also used for zsh
+fi
+
 if $(has_cmd coder); then
-    autoload -U compinit; compinit
     source <(coder completion zsh); compdef _coder coder
 fi
+
+if $(has_cmd rustup); then
+    if ! [ -f $HOME/.zfunc/_rustup ]; then
+        mkdir -p $HOME/.zfunc
+        rustup completions zsh > $HOME/.zfunc/_rustup
+    fi
+fi
+
+if $(has_cmd cargo); then
+    if ! [ -f $HOME/.zfunc/_cargo ]; then
+        mkdir -p $HOME/.zfunc
+        rustup completions zsh cargo > $HOME/.zfunc/_cargo
+    fi
+fi
+
+if $(has_cmd kubectl); then
+    source <(kubectl completion zsh)
+fi
+
+if $(has_cmd rbenv); then
+    eval "$(rbenv init - zsh)"
+fi
+
+export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/Project/wabt/bin"
 
 # start up tmux
 # If not running interactively, do not do anything

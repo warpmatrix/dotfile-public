@@ -30,6 +30,7 @@ files=(
     ".tmate.conf"
     ".vimrc"
     ".vim"
+    ".condarc"
 )
 files=(${files[@]} ${shell_files[@]})
 

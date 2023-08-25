@@ -121,8 +121,14 @@ alias rm="rm -i"
 
 # init pyenv
 if [ -d "$HOME/.pyenv" ] ; then
+    # Load pyenv automatically by appending the following to ~/.bash_profile 
+    # if it exists, otherwise ~/.profile (for login shells) and ~/.bashrc (for interactive shells):
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    # Load pyenv-virtualenv automatically by adding
+    # the following to ~/.bashrc:
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 # vim input mode

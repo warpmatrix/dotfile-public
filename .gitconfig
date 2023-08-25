@@ -16,3 +16,5 @@
 	sslverify = false
 [https]
 	sslverify = false
+[safe]
+	directory = /root/nfs/warpmatrix/script

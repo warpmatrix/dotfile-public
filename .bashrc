@@ -134,6 +134,10 @@ fi
 # vim input mode
 set -o vi
 
+if [ -f ~/.xmodmap ]; then
+    xmodmap ~/.xmodmap
+fi
+
 # start up tmux
 # If not running interactively, do not do anything
 # [[ $- != *i* ]] && return

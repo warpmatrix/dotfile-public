@@ -31,6 +31,7 @@ files=(
     ".vimrc"
     ".vim"
     ".condarc"
+    ".xmodmap"
 )
 files=(${files[@]} ${shell_files[@]})
 

@@ -39,9 +39,10 @@ fi
 # for pyenv
 if [ -d "$HOME/.pyenv" ] ; then
     export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 fi
+
 
 # for texlive
 if [ -d "/usr/local/texlive/2020/bin/x86_64-linux" ] ; then

@@ -46,3 +46,4 @@ autocmd FileType python,sh set commentstring=#\ %s
 autocmd FileType c,cpp,java,scala set commentstring=//\ %s
 autocmd FileType vim set commentstring=\"\ %s
 autocmd FileType markdown set commentstring=<!--\ %s\ -->
+autocmd FileType sql set commentstring=--\ %s

@@ -1,8 +1,14 @@
 [user]
 	email = warpmatrixlyk@gmail.com
 	name = warpmatrix
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = auto
 [alias]
-	stat = status
+	stat = status --short --branch
 	st = stash
 	rs = reset
 	co = checkout

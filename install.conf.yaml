@@ -1,0 +1,20 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    ~/.condarc: .condarc
+    ~/.gdbinit: .gdbinit
+    ~/.gitconfig: .gitconfig
+    ~/.inputrc: .inputrc
+    ~/.profile: .profile
+    ~/.tmux.conf: .tmux.conf
+    ~/.vim: .vim
+    ~/.vimrc: .vimrc
+    ~/.xmodmap: .xmodmap
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

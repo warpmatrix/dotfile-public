@@ -17,3 +17,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule ".vim/pack/wakatime/start/vim-wakatime"]
+	path = .vim/pack/wakatime/start/vim-wakatime
+	url = https://github.com/wakatime/vim-wakatime.git

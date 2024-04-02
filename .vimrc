@@ -49,10 +49,3 @@ autocmd FileType c,cpp,java,scala set commentstring=//\ %s
 autocmd FileType vim set commentstring=\"\ %s
 autocmd FileType markdown set commentstring=<!--\ %s\ -->
 autocmd FileType sql set commentstring=--\ %s
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'wakatime/vim-wakatime'
-call vundle#end()
-filetype plugin indent on

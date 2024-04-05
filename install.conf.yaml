@@ -2,6 +2,8 @@
     link:
       relink: true
       create: true
+    shell:
+      stderr: true
 
 - clean: ['~']
 
@@ -13,7 +15,9 @@
       mode: 0775
 
 - shell:
-  - ['if [[ -f ~/.profile ]] && [[ ! -L ~/.profile ]]; then mv ~/.profile ~/.dotfiles/backup/; fi']
+  - 
+    command: bash -c 'if [[ -f ~/.profile ]] && [[ ! -L ~/.profile ]]; then mv ~/.profile ~/.dotfiles/backup/; fi'
+    description: Backup .profile file
 
 - link:
     ~/.condarc: .condarc
@@ -28,3 +32,8 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - 
+    command: sudo ./install -p dotbot-apt/apt.py -c apt.conf.yaml
+    description: Install apt packages
+  - [bash -c 'sudo chsh -s $(which fish) $(whoami)', Making fish the default shell]
+  - [fish -c 'fish_vi_key_bindings']

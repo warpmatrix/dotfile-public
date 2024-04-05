@@ -6,6 +6,16 @@
 - clean: ['~']
 
 - link:
+    ~/.dotfiles: ""
+
+- create:
+    ~/.dotfiles/backup:
+      mode: 0775
+
+- shell:
+  - ['if [[ -f ~/.profile ]] && [[ ! -L ~/.profile ]]; then mv ~/.profile ~/.dotfiles/backup/; fi']
+
+- link:
     ~/.condarc: .condarc
     ~/.gdbinit: .gdbinit
     ~/.gitconfig: .gitconfig

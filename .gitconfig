@@ -1,26 +1,21 @@
 [user]
-	email = warpmatrixlyk@gmail.com
-	name = warpmatrix
+    email = warpmatrixlyk@gmail.com
+    name = warpmatrix
 [color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
 [alias]
-	stat = status --short --branch
-	st = stash
-	rs = reset
-	co = checkout
-	cm = commit
-	br = branch
-	rb = rebase
-	lg = log --graph --decorate --oneline
+    stat = status --short --branch
+    st = stash
+    rs = reset
+    co = checkout
+    cm = commit
+    br = branch
+    rb = rebase
+    lg = log --graph --decorate --oneline
+    unstage = reset HEAD --
 [core]
-	editor = vim
-[http]
-	sslverify = false
-[https]
-	sslverify = false
-[safe]
-	directory = /root/nfs/warpmatrix/script
+    editor = vim

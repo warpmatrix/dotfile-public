@@ -21,6 +21,7 @@
 
 - link:
     ~/.condarc: .condarc
+    ~/.config/fish/config.fish: .config/fish/config.fish
     ~/.gdbinit: .gdbinit
     ~/.gitconfig: .gitconfig
     ~/.inputrc: .inputrc
@@ -35,5 +36,6 @@
   - 
     command: sudo ./install -p dotbot-apt/apt.py -c apt.conf.yaml
     description: Install apt packages
+    stdout: true
   - [bash -c 'sudo chsh -s $(which fish) $(whoami)', Making fish the default shell]
   - [fish -c 'fish_vi_key_bindings']

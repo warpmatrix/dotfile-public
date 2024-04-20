@@ -19,3 +19,5 @@
     unstage = reset HEAD --
 [core]
     editor = vim
+[init]
+    defaultBranch = main
